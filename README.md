@@ -32,7 +32,7 @@ You can also reference the git repo directly if you want:
 ```yaml
 dependencies:
  fluro:
-   git: git://github.com/theyakka/fluro.git
+   git: git://github.com/pspchucky/fluro.git
 ```
 
 
