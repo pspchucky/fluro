@@ -38,7 +38,7 @@ class Router {
     return _routeTree.matchRoute(path);
   }
 
-  bool pop(BuildContext context) => Navigator.pop(context);
+  void pop(BuildContext context) => Navigator.of(context).pop();
 
   /// Navigates using a context that has a [Navigator] attached to it
   /// (example, the first screen of a [MaterialApp] will create a [BuildContext]
@@ -170,7 +170,7 @@ class Router {
         (RouteSettings routeSettings, Map<String, List<String>> parameters) {
       bool isNativeTransition = (transition == TransitionType.native ||
           transition == TransitionType.nativeModal);
-      if (isNativeTransition) {
+      if (!kIsWeb && isNativeTransition) {
         if (Theme.of(buildContext).platform == TargetPlatform.iOS) {
           return CupertinoPageRoute<dynamic>(
               settings: routeSettings,
