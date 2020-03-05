@@ -103,6 +103,8 @@ class HomeComponentState extends State<HomeComponent> {
           "Preset (Global transition)", "fixed-trans"),
       menuButton(context, 'assets/images/ic_transform_custom_hz.png',
           "Custom Transition", "custom"),
+      menuButton(context, 'assets/images/ic_transform_custom_hz.png',
+          "No Transition", "noTransition"),
       menuButton(context, 'assets/images/ic_result_hz.png', "Navigator Result",
           "pop-result"),
       menuButton(context, 'assets/images/ic_function_hz.png', "Function Call",
@@ -223,6 +225,10 @@ class HomeComponentState extends State<HomeComponent> {
         message =
             "When you close this screen you should see the current day of the week";
         result = "Today is ${_daysOfWeek[DateTime.now().weekday - 1]}!";
+      } else if (key == "noTransition") {
+        hexCode = "#9BFF94";
+        message = "This should have appeared without a transition.";
+        transitionType = TransitionType.noTransition;
       }
 
       String route = "/demo?message=$message&color_hex=$hexCode";

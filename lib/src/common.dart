@@ -35,7 +35,12 @@ class AppRoute {
   String route;
   dynamic handler;
   TransitionType transitionType;
-  AppRoute(this.route, this.handler, {this.transitionType});
+  AppRoute(this.route, this.handler,
+      {this.transitionType,
+      this.transitionBuilder,
+      Duration transitionDuration})
+      : this.transitionDuration =
+            transitionDuration ?? const Duration(milliseconds: 250);
 }
 
 enum TransitionType {
@@ -45,6 +50,7 @@ enum TransitionType {
   inFromRight,
   inFromBottom,
   fadeIn,
+  noTransition,
   custom, // if using custom then you must also provide a transition
   material,
   materialFullScreenDialog,
