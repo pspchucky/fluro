@@ -35,6 +35,8 @@ class AppRoute {
   String route;
   dynamic handler;
   TransitionType transitionType;
+  RouteTransitionsBuilder transitionBuilder;
+  Duration transitionDuration;
   AppRoute(this.route, this.handler,
       {this.transitionType,
       this.transitionBuilder,
